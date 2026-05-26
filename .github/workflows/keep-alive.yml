@@ -1,0 +1,16 @@
+name: Keep Database Alive
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping_db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase API
+        run: curl -s https://tylyjpseiebnuxclsqat.supabase.co/rest/v1/
+        
+      - name: Log Success
+        run: echo "Supabase API has been pinged successfully!"
