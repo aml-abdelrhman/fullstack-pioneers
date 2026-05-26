@@ -9,7 +9,11 @@ jobs:
   ping_site:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Request to Business Pioneers
-        run: |
-          curl -s https://fullstack-pioneers.vercel.app/
-          echo "Ping sent successfully to the correct link!"
+      - name: Ping Vercel Frontend
+        run: curl -s https://fullstack-pioneers.vercel.app/
+      
+      - name: Ping Supabase API
+        run: curl -s https://tylyjpseiebnuxclsqat.supabase.co/rest/v1/
+        
+      - name: Log Success
+        run: echo "Pings sent successfully to both Vercel and Supabase!"
